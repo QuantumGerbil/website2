@@ -1,45 +1,51 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Get the contact form by its ID
     const contactForm = document.getElementById('contact-form');
 
+    // Add a submit event listener to the contact form
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Prevent the default form submission behavior
 
+        // Get the values of the form fields
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
 
+        // Log the form data to the console
         console.log('Form submitted:', { name, email, message });
 
+        // Display an alert to the user
         alert('Thanks for your message! I\'ll get back to you faster than you can say "Totoro"!');
 
+        // Reset the form fields
         contactForm.reset();
     });
 
-    // Ghibli-inspired animation for project items
+    // Apply animation to project items on hover
     const projects = document.querySelectorAll('.project');
     projects.forEach(project => {
         project.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)';
-            this.style.transition = 'all 0.3s ease';
+            this.style.transform = 'translateY(-5px)'; // Move the project item up slightly
+            this.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)'; // Apply a shadow effect
+            this.style.transition = 'all 0.3s ease'; // Smooth transition
         });
 
         project.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            this.style.transform = 'translateY(0)'; // Reset the position
+            this.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)'; // Reset the shadow effect
         });
     });
 
-    // Easter egg: Totoro cursor
+    // Toggle Totoro cursor mode on 't' key press
     let totoroMode = false;
     document.addEventListener('keydown', function(e) {
         if (e.key === 't' || e.key === 'T') {
-            totoroMode = !totoroMode;
-            document.body.style.cursor = totoroMode ? 'url(totoro-cursor.png), auto' : 'default';
+            totoroMode = !totoroMode; // Toggle the mode
+            document.body.style.cursor = totoroMode ? 'url(totoro-cursor.png), auto' : 'default'; // Change the cursor
         }
     });
 
-    // Blog post data
+    // Data for blog posts
     const blogPosts = [
         {
             title: "The Importance of FOSS in Archival Work",
@@ -67,9 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-const container = document.getElementById('masonry-container');
+    // Get the container for the masonry layout
+    const container = document.getElementById('masonry-container');
 
-    // Create and append blog post cards
+    // Create and append blog post cards to the container
     blogPosts.forEach(post => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -93,10 +100,10 @@ const container = document.getElementById('masonry-container');
                 <a href="#" aria-label="Read full article about ${post.title}">Read more</a>
             </div>
         `;
-        container.appendChild(card);
+        container.appendChild(card); // Append the card to the container
     });
 
-    // Masonry layout function
+    // Function to apply a masonry layout to the blog post cards
     function masonryLayout() {
         const cards = Array.from(container.querySelectorAll('.card'));
         const containerWidth = container.offsetWidth;
@@ -106,28 +113,28 @@ const container = document.getElementById('masonry-container');
         const columnHeights = Array(columns).fill(0);
 
         cards.forEach((card) => {
-            card.style.position = 'absolute';
+            card.style.position = 'absolute'; // Position the card absolutely
             const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
             const x = shortestColumn * (cardWidth + gap);
             const y = columnHeights[shortestColumn];
 
-            card.style.transform = `translate(${x}px, ${y}px)`;
-            columnHeights[shortestColumn] += card.offsetHeight + gap;
+            card.style.transform = `translate(${x}px, ${y}px)`; // Position the card
+            columnHeights[shortestColumn] += card.offsetHeight + gap; // Update the column height
         });
 
-        container.style.height = `${Math.max(...columnHeights)}px`;
+        container.style.height = `${Math.max(...columnHeights)}px`; // Set the container height
     }
 
-    // Initial layout
+    // Apply the initial masonry layout on window load
     window.addEventListener('load', () => {
-        container.style.position = 'relative';
-        masonryLayout();
+        container.style.position = 'relative'; // Set the container to relative positioning
+        masonryLayout(); // Apply the layout
     });
 
-    // Reflow on window resize
+    // Reapply the layout on window resize with a debounce
     let resizeTimer;
     window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(masonryLayout, 100);
+        clearTimeout(resizeTimer); // Clear the previous timer
+        resizeTimer = setTimeout(masonryLayout, 100); // Set a new timer to reapply the layout
     });
 });
