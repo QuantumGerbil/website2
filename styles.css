@@ -145,8 +145,14 @@ h1 {
     font-size: 2rem;
 }
 
+#skill-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .skill-category, .project {
-    margin-bottom: 1.5rem;
+    margin: 0rem 1.5rem 1.5rem 1.5rem
 }
 
 .project {
