@@ -38,10 +38,18 @@ body {
     font-size: 16px; /* Base font size */
 }
 
-header {
+#top-banner {
+    display: flex;
     background-color: var(--color-forest-green);
     padding: 1rem;
     border-bottom: 5px solid var(--color-saddle-brown);
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+
 }
 
 nav ul {
@@ -51,6 +59,7 @@ nav ul {
 }
 
 nav ul li a {
+    padding: 1em;
     text-decoration: none;
     color: var(--color-cream);
     transition: color 0.3s ease;
@@ -60,10 +69,41 @@ nav ul li a:hover {
     color: var(--color-wheat);
 }
 
+.nav-wrapper {
+    width: 40vw;
+}
+
+#internal {
+    background-color: var(--color-sage-green);
+    border-radius: 15px;
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+}
+
+#hero {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: var(--color-sage-green);
+    color: var(--color-black);
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    width: 60vw;
+}
+
+hgroup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, var(--color-forest-green), var(--color-sage-green), var(--color-terracotta));
 }
 
 section {
@@ -105,13 +145,6 @@ h1 {
     font-size: 2rem;
 }
 
-#hero {
-    text-align: center;
-    padding: 3rem 0;
-    background-color: var(--color-sage-green);
-    color: var(--color-black);
-}
-
 .skill-category, .project {
     margin-bottom: 1.5rem;
 }
@@ -148,6 +181,14 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.btn {
+  padding: 12px 16px;
+}
+
+.btn.active {
+  background-color: var(--color-terracotta);
 }
 
 button:hover {
