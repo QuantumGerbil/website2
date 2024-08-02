@@ -3,98 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bryan Morgan" />
     <title>Bryan Morgan - Archivist, Technologist & FOSS Enthusiast</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <header role="banner">
-        <nav role="navigation">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#interests">Interests</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header role="banner" id="top-banner">
+      <hgroup id="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Bryan Morgan</h1>
+        <p><small>Archivist, Technologist & FOSS Enthusiast</small></p>
+      </hgroup>
+      <div class="nav-wrapper">
+      <nav id="external" role="navigation">
+        <ul>
+          <li><a href="index.html" property="url">Home</a></li>
+          <li><a href="cv.html" property="url">CV</a></li>
+          <li><a href="blog.html" property="url">Tutorials and Blog</a></li>
+          <li><a href="contact.html" property="url">Contact</a></li>
+        </ul>
+      </nav>
+      </div>
     </header>
 
     <main id="main-content" role="main">
-        <section id="hero" aria-labelledby="hero-title">
-            <h1 id="hero-title">Bryan Morgan</h1>
-            <h2>Archivist, Technologist & FOSS Enthusiast</h2>
-        </section>
-
         <section id="about" aria-labelledby="about-title">
             <h2 id="about-title">About Me</h2>
-            <p>Hi there! I'm Bryan, a passionate archivist with a strong background in technology. I bridge the gap between traditional archival practices and modern digital solutions. When I'm not preserving history, you'll find me tinkering with Linux, coding in C++ and Rust, or watching Studio Ghibli films with my furry friends.</p>
+            <p>Hi there! I'm Bryan, a passionate archivist with a strong background in technology. I bridge the gap between traditional archival practices and modern digital solutions. When I'm not preserving history, you'll find me tinkering with Linux, coding in C++ and Rust, or finding something else tech related to explore.</p>
         </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skill-category">
-                <h3>Archival</h3>
-                <ul>
-                    <li>Records Management</li>
-                    <li>Preservation Techniques</li>
-                    <li>Metadata Standards</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Technology</h3>
-                <ul>
-                    <li>Digital Asset Management</li>
-                    <li>Linux Administration</li>
-                    <li>C++ and Rust Programming</li>
-                    <li>Open Source Development</li>
-                </ul>
-            </div>
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">About This Site</h2>
+            <p>When I was studying for my first degree I made extensive use of tutorial websites that no longer exist to understand it all. Now that I no longer work in software development am trying to keep my skills sharp I felt it important to try to pay the efforts of all those programmers that helped me forward. This page first started as a portfolio piece and a home for my writing but it will also house any tutorials I come up with using whatever language I happen to be interested in at the time.</p>
         </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>FOSS Archival Tool</h3>
-                <p>Developed an open-source digital asset management system using Rust, specifically designed for small archives.</p>
-            </div>
-            <div class="project">
-                <h3>Linux-based Archive Server</h3>
-                <p>Set up and maintain a custom Linux server for efficient storage and retrieval of digital archives.</p>
-            </div>
-        </section>
-
-        <section id="interests">
-            <h2>Interests</h2>
-            <ul>
-                <li>Free and Open Source Software (FOSS)</li>
-                <li>Linux customization and optimization</li>
-                <li>Animal welfare and pet care</li>
-            </ul>
-        </section>
-
         <section id="blog">
             <h2>Blog Posts</h2>
+            <div id="filterButtons">
+                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                <button class="btn" onclick="filterSelection('articles')"> Blog</button>
+                <button class="btn" onclick="filterSelection('tutorials')"> Tutorials</button>
+            </div>
             <div class="container" id="masonry-container" aria-live="polite">
                 <!-- Blog post cards will be dynamically inserted here -->
             </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
         </section>
     </main>
 
