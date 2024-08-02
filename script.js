@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get the contact form by its ID
     const contactForm = document.getElementById('contact-form');
 
+    if(contactForm){
     // Add a submit event listener to the contact form
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission behavior
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Reset the form fields
         contactForm.reset();
     });
+    }
 
     // Apply animation to project items on hover
     const projects = document.querySelectorAll('.project');
