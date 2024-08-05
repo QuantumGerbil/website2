@@ -261,11 +261,16 @@ button:hover {
 }
 
 footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center;
   padding: var(--spacing-medium);
   background-color: var(--color-forest-green);
   color: var(--color-cream);
   border-top: 5px solid var(--color-saddle-brown);
+  z-index: 5
 }
 
 #blog {
